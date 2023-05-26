@@ -1,0 +1,18 @@
+actors
+    actor
+        uuid = "F407842BA9534197B3B538E7383830EE"
+        type = "Python"
+        name = "F40784"
+        endpoint = "inproc://F407842BA9534197B3B538E7383830EE"
+        xpos = "233.000000"
+        ypos = "160.000000"
+        pyfile = "skeletonActor.py"
+    actor
+        uuid = "C95574DCBEC9431786B497852A297695"
+        type = "Log"
+        name = "C95574"
+        endpoint = "inproc://C95574DCBEC9431786B497852A297695"
+        xpos = "745.500000"
+        ypos = "440.000000"
+connections
+    con = "inproc://C95574DCBEC9431786B497852A297695,inproc://F407842BA9534197B3B538E7383830EE,OSC"
