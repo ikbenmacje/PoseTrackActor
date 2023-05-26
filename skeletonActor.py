@@ -2,6 +2,11 @@
 #
 # Make sure the class name matches the filename! (without the .py file extension)
 
+
+import sys 
+
+sys.path.append("/Users/machiel/Work/Git/venv/lib/python3.11/site-packages")
+
 import cv2
 import mediapipe as mp
 mp_drawing = mp.solutions.drawing_utils
@@ -12,7 +17,7 @@ mp_pose = mp.solutions.pose
 class skeletonActor(object):
     def __init__(self, *args, **kwargs):
         self.cap = cv2.VideoCapture(0)
-        self.timeout = 1000         # Use this timeout value for when you need recurring handleTimer events
+        self.timeout = 0         # Use this timeout value for when you need recurring handleTimer events
                                     # Set to -1 to wait infinite (default)
 
     def handleApi(self, command, *args, **kwargs):
