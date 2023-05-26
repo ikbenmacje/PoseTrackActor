@@ -17,7 +17,7 @@ mp_pose = mp.solutions.pose
 class skeletonActor(object):
     def __init__(self, *args, **kwargs):
         self.cap = cv2.VideoCapture(0)
-        self.timeout = 0         # Use this timeout value for when you need recurring handleTimer events
+        self.timeout = 100         # Use this timeout value for when you need recurring handleTimer events
                                     # Set to -1 to wait infinite (default)
 
     def handleApi(self, command, *args, **kwargs):
