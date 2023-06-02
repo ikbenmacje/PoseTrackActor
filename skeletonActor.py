@@ -4,9 +4,6 @@
 
 
 import sys 
-
-sys.path.append("/Users/machiel/Work/Git/venv/lib/python3.11/site-packages")
-
 import cv2
 import mediapipe as mp
 mp_drawing = mp.solutions.drawing_utils
