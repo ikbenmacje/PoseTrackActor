@@ -16,7 +16,7 @@ int numLandmarks = 32;
 
 void setup() {
   size(800, 600);
-  frameRate(25);
+  //frameRate(25);
   /* start oscP5, listening for incoming messages at port 12000 */
   oscP5 = new OscP5(this, 6200);
 
@@ -60,11 +60,21 @@ void oscEvent(OscMessage theOscMessage) {
 
     int index = i * 5;
 
+    // If we get data from Gazebo
     int id = (int) theOscMessage.get(index+0).longValue();
     float x = (float) theOscMessage.get(index+1).doubleValue();
     float y = (float) theOscMessage.get(index+2).doubleValue();
     float z = (float) theOscMessage.get(index+3).doubleValue();
     float v = (float) theOscMessage.get(index+4).doubleValue();
+    
+    // If we get data from python direct
+    /*
+    int id = (int) theOscMessage.get(index+0).intValue();
+    float x = (float) theOscMessage.get(index+1).floatValue();
+    float y = (float) theOscMessage.get(index+2).floatValue();
+    float z = (float) theOscMessage.get(index+3).floatValue();
+    float v = (float) theOscMessage.get(index+4).floatValue();
+    */
     
 
     dataPoint dp = datapoints.get(i);
@@ -93,7 +103,7 @@ class dataPoint {
     float y = map(pos.y,0,1,0,height);
     
     circle(x, y, 20);
-    println(id, pos.x, pos.y, pos.z, vis);
+    //println(id, pos.x, pos.y, pos.z, vis);
   }
 
   void update(int id, float x, float y, float z, float v) {
