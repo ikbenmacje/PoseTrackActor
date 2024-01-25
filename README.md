@@ -67,9 +67,16 @@ Source: [link](https://developers.google.com/mediapipe/solutions/vision/pose_lan
 
 ## Processing
 
-![Screenshot](img/screenshot01.png)
+![Screenshot Processing](img/screenshot01.png)
 
 
 In the processing directory you can find oscRecieveGazeboPose which parses the OSC data send out by the pyhton actor to visualise the data.
+
+## Isadora
+
+![Screenshot Isadora](img/screenshotIsadora.jpg)
+
+In the isadora directory you can find skeletonVisualiser.izz which parses the OSC data send out by the pyhton actor to visualise the data.
+The file is subdivided in different scenes creaed as a tutorial to showcase how you can use the data.
 
 
