@@ -5,7 +5,10 @@
 
 import sys 
 import cv2
+import struct
+from pythonosc.osc_message_builder import OscMessageBuilder
 import mediapipe as mp
+
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
@@ -43,25 +46,27 @@ class skeletonActor(object):
             results = self.pose.process(image)
 
             # check if we have landmarks
-            # This if statement is not so relaible
-            #if len(results.pose_landmarks.landmark) != 0:
             if results.pose_landmarks and len(results.pose_landmarks.landmark):
 
                 # Each pose has 32 landmarks with normalized x/y/z/visiblilty
-                poseCoords = []
+                m = OscMessageBuilder("/pose")
                 for id, lm in enumerate(results.pose_landmarks.landmark):
-                    #print(id,lm)
-                    poseCoords.append(id)
-                    poseCoords.append(lm.x)
-                    poseCoords.append(lm.y)
-                    poseCoords.append(lm.z)
-                    poseCoords.append(lm.visibility)
-
+                    
+                    m.add_arg(id)
+                    m.add_arg(lm.x)
+                    m.add_arg(lm.y)
+                    m.add_arg(lm.z)
+                    m.add_arg(lm.visibility)
+               
                 # set timeout to 0 to go as quick as possible if there is data
                 self.timeout = 0   
 
-                # send over OSC
-                return ("/pose", poseCoords)
+                # Run from Main
+                if __name__ == '__main__':
+                    return m.build()
+                # Run from gazebo
+                else:
+                    return m.build().dgram
 
         # take it easy because we have nothing to do.
         self.timeout = 50
@@ -76,6 +81,9 @@ class skeletonActor(object):
         self.cap.release()
         print("Bye bye from {}".format(args[1]))
 
+
+# is only used when tunning stand alone
+# meaning outside of gazebo
 if __name__ == "__main__":
     import time
     from pythonosc import udp_client
@@ -83,20 +91,15 @@ if __name__ == "__main__":
     # Create OSC client
     OSCport = 6200
     OSCaddress = '127.0.0.1'
-    client = udp_client.SimpleUDPClient(OSCaddress, OSCport) # local debug 
+    #client = udp_client.SimpleUDPClient(OSCaddress, OSCport) # local debug 
+    client = udp_client.UDPClient(OSCaddress, OSCport) # local debug 
 
     sk = skeletonActor()
     while True:
         ts = time.time()
         oscM = sk.handleTimer()
-        #print(oscM)
-
-        timeEnd = time.time()
-        dur = timeEnd - ts
-        print(dur)
+       
         # send over OSC
         if oscM:
-            client.send_message(oscM[0], oscM[1])
-
-        #time.sleep(sk.timeout/1000.)
+            client.send(oscM)
 

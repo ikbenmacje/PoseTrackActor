@@ -59,24 +59,13 @@ void oscEvent(OscMessage theOscMessage) {
   for (int i=0; i<numLandmarks; i++) {
 
     int index = i * 5;
-
-    // If we get data from Gazebo
-    int id = (int) theOscMessage.get(index+0).longValue();
-    float x = (float) theOscMessage.get(index+1).doubleValue();
-    float y = (float) theOscMessage.get(index+2).doubleValue();
-    float z = (float) theOscMessage.get(index+3).doubleValue();
-    float v = (float) theOscMessage.get(index+4).doubleValue();
     
-    // If we get data from python direct
-    /*
     int id = (int) theOscMessage.get(index+0).intValue();
     float x = (float) theOscMessage.get(index+1).floatValue();
     float y = (float) theOscMessage.get(index+2).floatValue();
     float z = (float) theOscMessage.get(index+3).floatValue();
     float v = (float) theOscMessage.get(index+4).floatValue();
-    */
     
-
     dataPoint dp = datapoints.get(i);
     dp.update(id, x, y, z, v);
   }
