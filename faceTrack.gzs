@@ -1,0 +1,29 @@
+actors
+    actor
+        uuid = "F407842BA9534197B3B538E7383830EE"
+        type = "Python"
+        name = "(null)"
+        endpoint = "inproc://F407842BA9534197B3B538E7383830EE"
+        xpos = "233.000000"
+        ypos = "160.000000"
+        pyfile = "faceDetectionActor.py"
+    actor
+        uuid = "B9EEAE7169AA46079D120838E89ED9D5"
+        type = "OSC Output"
+        name = "default"
+        endpoint = "inproc://B9EEAE7169AA46079D120838E89ED9D5"
+        xpos = "746.000000"
+        ypos = "153.000000"
+        name = "default"
+        ip = "127.0.0.1"
+        port = "6200"
+    actor
+        uuid = "C95574DCBEC9431786B497852A297695"
+        type = "Log"
+        name = "C95574"
+        endpoint = "inproc://C95574DCBEC9431786B497852A297695"
+        xpos = "745.500000"
+        ypos = "440.000000"
+connections
+    con = "inproc://B9EEAE7169AA46079D120838E89ED9D5,inproc://F407842BA9534197B3B538E7383830EE,OSC"
+    con = "inproc://C95574DCBEC9431786B497852A297695,inproc://F407842BA9534197B3B538E7383830EE,OSC"
