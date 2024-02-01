@@ -29,10 +29,10 @@ mp_face_detection = mp.solutions.face_detection
     9: float: nose y
     10: float: mouth x
     11: float: mouth y
-    12: flaot right ear x
-    13: flaot right ear y
-    14: flaot left ear x
-    15: flaot left ear y
+    12: float right ear x
+    13: float right ear y
+    14: float left ear x
+    15: float left ear y
 
 
 '''
