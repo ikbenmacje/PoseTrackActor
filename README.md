@@ -1,18 +1,50 @@
-# PoseTrackActor
 
-This repo contains skeletonActor.py flie which can be uses to run in Gazebo as Actor. poseTrack.gzs is a simple stage in which the actor is implemented.
+# GazeboOsc Mediapipe Python actors
 
-## Mediapipe
+This repo contains Gazebosc Python actos you can run from Gazebosc to use Mediapipe functionlaity such as:  
+- pose tracking 
+- face tracking
+
+### Mediapipe
 This actor uses the [mediapipe library](https://developers.google.com/mediapipe) So you need to refrence to where this library is installed on your system. We advise to use a Python virtual environment for this. See for more information about Python virtual environment [here](https://docs.python.org/3/library/venv.html)
 
-You can then reference to the library at the beginning of the python script as follows:
+## Getting Started
 
-```
-import sys 
-sys.path.append("path_to_venv/lib/python3.11/site-packages")
-```
+To install Gazebo on your computer go here: 
+https://pong.hku.nl/~buildbot/gazebosc/
 
-### OSC message structure
+Click on "Last modified" to sort the files on date and download the last version of Gazebo for your computer Windows/OSX/Linux.
+
+### Mediapipe Python actors
+
+**Download the actors**
+- Switch to branch mediapip0.10.9
+- Download this repo by clicking on "<> Code" and then "Download Zip"
+- Unzip the zip
+
+**Install python virtual environment with and Mediapipe**
+To use the mediapipe actors you first need to install a Python Virtual Environment where you then install mediapipe.
+
+Open a terminal and use the Python included with Gazebo to make a python virtual environment in the directory you downloaded
+
+`/Volumes/gazebosc_OSX_10.15_fd8b/gazebosc.app/Contents/Resources/python/bin/python3.8 -m venv venv`
+
+Then activate the python virutal environment:
+
+`source venv/bin/activate`
+
+Then install all the requirements for the actors:
+
+`pip install -r requrements.txt`
+
+source: https://realpython.com/python-virtual-environments-a-primer/
+
+- Open GazeboOsc
+- From whithin GazeboOsc click "file" and then "load" and navigate to the folder you just downloaded and open "poseTrack.gzs" 
+- This will open the stage with the python actor and it wil start running the actor
+- You might need to repeat loading the stage to get the actor working.
+
+## OSC message structure
 
 The OSC message send out by the skeletonActor starts with the label "/pose".
 The message has a length of 165 values and consists of 32 landmarks. For eacht landmark thes message structure is "hdddd" meaning one value of type long and four values of type double. These represent the ID of the landmark, the x position, the y position, the z position and the visibility. 
@@ -22,7 +54,7 @@ So the format is:
 	h, d, d, d, d
 	id, x, y, z, visibility
 
-#### The landmark IDs:
+### The landmark IDs:
 
 0 - nose  
 1 - left eye (inner)  
