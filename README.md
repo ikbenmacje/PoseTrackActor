@@ -10,35 +10,37 @@ This actor uses the [mediapipe library](https://developers.google.com/mediapipe)
 
 ## Getting Started
 
+### Install Gazebo
 To install Gazebo on your computer go here: 
 https://pong.hku.nl/~buildbot/gazebosc/
 
 Click on "Last modified" to sort the files on date and download the last version of Gazebo for your computer Windows/OSX/Linux.
 
-### Mediapipe Python actors
+### Install Mediapipe Python actors
 
-**Download the actors**
+#### Download the actors
 - Switch to branch mediapip0.10.9
 - Download this repo by clicking on "<> Code" and then "Download Zip"
 - Unzip the zip
 
-**Install python virtual environment with and Mediapipe**
+#### Install python virtual environment with Mediapipe
 To use the mediapipe actors you first need to install a Python Virtual Environment where you then install mediapipe.
 
-Open a terminal and use the Python included with Gazebo to make a python virtual environment in the directory you downloaded
+Open a terminal and use the Python included with Gazebo to make a python virtual environment in the directory you downloaded. This means you first need the path to the Python excecutable inside of Gazebo.  
 
+Following is a example for OSX:
 `/Volumes/gazebosc_OSX_10.15_fd8b/gazebosc.app/Contents/Resources/python/bin/python3.8 -m venv venv`
 
 Then activate the python virutal environment:
-
 `source venv/bin/activate`
 
 Then install all the requirements for the actors:
-
 `pip install -r requrements.txt`
 
-source: https://realpython.com/python-virtual-environments-a-primer/
+primer on Python venv [here](https://realpython.com/python-virtual-environments-a-primer/)
 
+
+#### Run actors from Gazebo
 - Open GazeboOsc
 - From whithin GazeboOsc click "file" and then "load" and navigate to the folder you just downloaded and open "poseTrack.gzs" 
 - This will open the stage with the python actor and it wil start running the actor
