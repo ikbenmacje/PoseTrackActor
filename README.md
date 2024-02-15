@@ -1,7 +1,7 @@
 
 # GazeboOsc Mediapipe Python actors
 
-This repo contains Gazebosc Python actos you can run from Gazebosc to use Mediapipe functionlaity such as:  
+This repo contains Gazebosc Python actors you can run from Gazebosc to use Mediapipe functionlaity such as:  
 - pose tracking 
 - face tracking
 
@@ -28,13 +28,13 @@ To use the mediapipe actors you first need to install a Python Virtual Environme
 
 Open a terminal and use the Python included with Gazebo to make a python virtual environment in the directory you downloaded. This means you first need the path to the Python excecutable inside of Gazebo.  
 
-Following is a example for OSX:
+Following is a example for OSX:  
 `/Volumes/gazebosc_OSX_10.15_fd8b/gazebosc.app/Contents/Resources/python/bin/python3.8 -m venv venv`
 
-Then activate the python virutal environment:
+Then activate the python virutal environment:  
 `source venv/bin/activate`
 
-Then install all the requirements for the actors:
+Then install all the requirements for the actors:  
 `pip install -r requrements.txt`
 
 primer on Python venv [here](https://realpython.com/python-virtual-environments-a-primer/)
@@ -99,18 +99,21 @@ Landmark image
 
 Source: [link](https://developers.google.com/mediapipe/solutions/vision/pose_landmarker)
 
-## Processing
+## Processing Example
+
+In the processing directory you can find oscRecieveGazeboPose which parses the OSC data send out by the pyhton actor to visualise the data.
 
 ![Screenshot Processing](img/screenshot01.png)
 
 
-In the processing directory you can find oscRecieveGazeboPose which parses the OSC data send out by the pyhton actor to visualise the data.
 
-## Isadora
-
-![Screenshot Isadora](img/screenshotIsadora.jpg)
+## Isadora Example
 
 In the isadora directory you can find skeletonVisualiser.izz which parses the OSC data send out by the pyhton actor to visualise the data.
 The file is subdivided in different scenes creaed as a tutorial to showcase how you can use the data.
+
+![Screenshot Isadora](img/screenshotIsadora.jpg)
+
+
 
 
