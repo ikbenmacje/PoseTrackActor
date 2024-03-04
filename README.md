@@ -165,7 +165,7 @@ The message has a length of 16 values and consists of 12 landmarks. The first fo
 
 In the processing directory you can find oscRecieveGazeboPose which parses the OSC data send out by the pyhton actor to visualise the data.
 
-![Screenshot Processing](img/screenshot01.png)
+![Screenshot Processing](img/faceDetectionProcessing.jpg)
 
 ### Face tracking Isadora Example
 
