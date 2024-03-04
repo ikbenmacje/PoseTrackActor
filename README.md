@@ -28,22 +28,21 @@ To use the mediapipe actors you first need to install a Python Virtual Environme
 
 Open a terminal and use the Python included with Gazebo to make a python virtual environment somewhere on your computer. This means you first need the path to the Python excecutable inside of Gazebo.  
 
-**Attention when doing this on macOS first do this in the terminal**
+**Attention when doing this on macOS first do this in the terminal**  
 `export SYSTEM_VERSION_COMPAT=0`
 
 Read [here](https://github.com/AnyLifeZLB/FaceVerificationSDK/blob/main/install_newest_mediapipe_on_macos.md) why.
 
-Make a Python Virtual Environment (Following is a example for macOS):  
-`/Applications/gazebosc.app/Contents/Resources/python/bin/python3.9 -m venv myvenv`
+1. Make a Python Virtual Environment (Following is a example for macOS):  
+`/Applications/gazebosc.app/Contents/Resources/python/bin/python3.9 -m venv myvenv`  
 
-Then activate the python virutal environment:  
-`source myvenv/bin/activate`
+2. Then activate the python virutal environment:  
+`source myvenv/bin/activate`  
 
-Then install all the requirements for the actors:  
-`pip install -r requrements.txt`
+3. Then install all the requirements for the actors:  
+`pip install -r requrements.txt`  
 
-Then copy or symbolic link the `myvenv/lib/python3.9/site-packages` directory to the folder with the actors
-
+4. Then copy or symbolic link the: `myvenv/lib/python3.9/site-packages` directory to the folder with the actors  
 
 - how to make symbolic link on macOS [here](https://www.howtogeek.com/297721/how-to-create-and-use-symbolic-links-aka-symlinks-on-a-mac/)
 - primer on Python venv [here](https://realpython.com/python-virtual-environments-a-primer/)
@@ -51,10 +50,10 @@ Then copy or symbolic link the `myvenv/lib/python3.9/site-packages` directory to
 
 #### Run actors from Gazebo
 - Open GazeboOsc
-- From whithin GazeboOsc click "file" and then "load" and navigate to the folder you just downloaded and open "poseTrack.gzs" 
-- This will open the stage with the python actor and it wil start running the actor
-*The first time the actor will probably not load because the Python file loaded before the site-packages dir with the Python libs*
-- Click on the python actor in te textfiled and hit enter to reload the python file
+- From whithin GazeboOsc click "file" and then "load" and navigate to the folder you just downloaded and open "poseTrack.gzs"  
+- This will open the stage with the python actor and it wil start running the actor  
+*The first time the actor will probably not load because the Python file loaded before the site-packages dir with the Python libs*  
+- Click on the python actor in te textfiled and hit enter to reload the python file  
 
 ## OSC message structure
 
