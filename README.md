@@ -55,7 +55,13 @@ Read [here](https://github.com/AnyLifeZLB/FaceVerificationSDK/blob/main/install_
 *The first time the actor will probably not load because the Python file loaded before the site-packages dir with the Python libs*  
 - Click on the python actor in te textfiled and hit enter to reload the python file  
 
-## OSC message structure
+## Pose Tracking
+
+Mediapipe documentatiopn [here](https://developers.google.com/mediapipe/solutions/vision/pose_landmarker)
+
+The MediaPipe Pose Landmarker task lets you detect landmarks of human bodies in an image or video. You can use this task to identify key body locations, analyze posture, and categorize movements. 
+
+### OSC message structure
 
 The OSC message send out by the skeletonActor starts with the label "/pose".
 The message has a length of 165 values and consists of 32 landmarks. For eacht landmark thes message structure is "hdddd" meaning one value of type long and four values of type double. These represent the ID of the landmark, the x position, the y position, the z position and the visibility. 
@@ -65,7 +71,7 @@ So the format is:
 	h, d, d, d, d
 	id, x, y, z, visibility
 
-### The landmark IDs:
+#### The landmark IDs:
 
 0 - nose  
 1 - left eye (inner)  
@@ -108,21 +114,65 @@ Landmark image
 
 Source: [link](https://developers.google.com/mediapipe/solutions/vision/pose_landmarker)
 
-## Processing Example
+### Pose tracking Processing Example
 
 In the processing directory you can find oscRecieveGazeboPose which parses the OSC data send out by the pyhton actor to visualise the data.
 
 ![Screenshot Processing](img/screenshot01.png)
 
 
-
-## Isadora Example
+### Pose tracking Isadora Example
 
 In the isadora directory you can find skeletonVisualiser.izz which parses the OSC data send out by the pyhton actor to visualise the data.
 The file is subdivided in different scenes creaed as a tutorial to showcase how you can use the data.
 
 ![Screenshot Isadora](img/screenshotIsadora.jpg)
 
+
+## Face tracking
+
+Mediapipe documentatiopn [here](https://developers.google.com/mediapipe/solutions/vision/face_detector)
+
+The MediaPipe Face Detector task lets you detect faces in an image or video. You can use this task to locate faces and facial features within a frame. This task uses a machine learning (ML) model that works with single images or a continuous stream of images
+
+
+### OSC message structure
+
+The OSC message send out by the face detection actor starts with the label "/face".
+The message has a length of 16 values and consists of 12 landmarks. The first four numbers are the xmin, ymin and width, height of the face boundingbox. For each landmark thes message structure is "ff" meaning two values of type float. These represent the x and y position of the landmark.
+
+ Facedetection OSC message structure
+    label: /face
+    arguments:
+    0: float: boundingbox xmin
+    1: float: boundingbox ymin
+    2: float: boundingbox width
+    3: float: boundingbox height
+    4: float: right eye x
+    5: float: right eye y
+    6: float: left eye x
+    7: float: left eye y
+    8: float: nose x
+    9: float: nose y
+    10: float: mouth x
+    11: float: mouth y
+    12: float right ear x
+    13: float right ear y
+    14: float left ear x
+    15: float left ear y
+
+### Face tracking Processing Example
+
+In the processing directory you can find oscRecieveGazeboPose which parses the OSC data send out by the pyhton actor to visualise the data.
+
+![Screenshot Processing](img/screenshot01.png)
+
+### Face tracking Isadora Example
+
+In the isadora directory you can find faceDetectionVisualiser.izz which parses the OSC data send out by the pyhton actor to visualise the data.
+The file is subdivided in different scenes creaed as a tutorial to showcase how you can use the data.
+
+![Screenshot Isadora](img/faceDetectionIsadora.jpg)
 
 
 
