@@ -26,25 +26,35 @@ Click on "Last modified" to sort the files on date and download the last version
 #### Install python virtual environment with Mediapipe
 To use the mediapipe actors you first need to install a Python Virtual Environment where you then install mediapipe.
 
-Open a terminal and use the Python included with Gazebo to make a python virtual environment in the directory you downloaded. This means you first need the path to the Python excecutable inside of Gazebo.  
+Open a terminal and use the Python included with Gazebo to make a python virtual environment somewhere on your computer. This means you first need the path to the Python excecutable inside of Gazebo.  
 
-Following is a example for OSX:  
-`/Volumes/gazebosc_OSX_10.15_fd8b/gazebosc.app/Contents/Resources/python/bin/python3.8 -m venv venv`
+**Attention when doing this on macOS first do this in the terminal**
+`export SYSTEM_VERSION_COMPAT=0`
+
+Read [here](https://github.com/AnyLifeZLB/FaceVerificationSDK/blob/main/install_newest_mediapipe_on_macos.md) why.
+
+Make a Python Virtual Environment (Following is a example for macOS):  
+`/Applications/gazebosc.app/Contents/Resources/python/bin/python3.9 -m venv myvenv`
 
 Then activate the python virutal environment:  
-`source venv/bin/activate`
+`source myvenv/bin/activate`
 
 Then install all the requirements for the actors:  
 `pip install -r requrements.txt`
 
-primer on Python venv [here](https://realpython.com/python-virtual-environments-a-primer/)
+Then copy or symbolic link the `myvenv/lib/python3.9/site-packages` directory to the folder with the actors
+
+
+- how to make symbolic link on macOS [here](https://www.howtogeek.com/297721/how-to-create-and-use-symbolic-links-aka-symlinks-on-a-mac/)
+- primer on Python venv [here](https://realpython.com/python-virtual-environments-a-primer/)
 
 
 #### Run actors from Gazebo
 - Open GazeboOsc
 - From whithin GazeboOsc click "file" and then "load" and navigate to the folder you just downloaded and open "poseTrack.gzs" 
 - This will open the stage with the python actor and it wil start running the actor
-- You might need to repeat loading the stage to get the actor working.
+*The first time the actor will probably not load because the Python file loaded before the site-packages dir with the Python libs*
+- Click on the python actor in te textfiled and hit enter to reload the python file
 
 ## OSC message structure
 
