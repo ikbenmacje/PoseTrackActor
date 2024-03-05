@@ -32,17 +32,24 @@ Open a terminal and use the Python included with Gazebo to make a python virtual
 `export SYSTEM_VERSION_COMPAT=0`
 
 Read [here](https://github.com/AnyLifeZLB/FaceVerificationSDK/blob/main/install_newest_mediapipe_on_macos.md) why.
+1. Open a terminal and go to the directory where you want to install the Python vVirtual environment
+*for example:*
+`cd ~/Documents/`
 
-1. Make a Python Virtual Environment (Following is a example for macOS):  
+2. Make a Python Virtual Environment (Following is a example for macOS):  
 `/Applications/gazebosc.app/Contents/Resources/python/bin/python3.9 -m venv myvenv`  
 
-2. Then activate the python virutal environment:  
+3. Then activate the python virutal environment:  
 `source myvenv/bin/activate`  
 
-3. Then install all the requirements for the actors:  
-`pip install -r requrements.txt`  
+5. Go to the Mediapipe actors folder in the terminal:  
+*(your path might be different)*  
+`cd Documents/PoseTrackActor-mediapipe0.10.9`  
 
-4. Then copy or symbolic link the: `myvenv/lib/python3.9/site-packages` directory to the folder with the actors  
+6. Then install all the requirements for the actors:  
+`pip install -r requirements.txt`  
+
+7. Then copy or symbolic link the: `myvenv/lib/python3.9/site-packages` directory to the folder with the actors  
 
 - how to make symbolic link on macOS [here](https://www.howtogeek.com/297721/how-to-create-and-use-symbolic-links-aka-symlinks-on-a-mac/)
 - primer on Python venv [here](https://realpython.com/python-virtual-environments-a-primer/)
@@ -52,12 +59,13 @@ Read [here](https://github.com/AnyLifeZLB/FaceVerificationSDK/blob/main/install_
 - Open GazeboOsc
 - From whithin GazeboOsc click "file" and then "load" and navigate to the folder you just downloaded and open "poseTrack.gzs"  
 - This will open the stage with the python actor and it wil start running the actor  
-*The first time the actor will probably not load because the Python file loaded before the site-packages dir with the Python libs*  
+*The first time the actor will probably not load*  
 - Click on the python actor in te textfiled and hit enter to reload the python file  
 
 ## Pose Tracking
 
 Mediapipe documentatiopn [here](https://developers.google.com/mediapipe/solutions/vision/pose_landmarker)
+You need to also download the pose_landmarker.task file from the above URL
 
 The MediaPipe Pose Landmarker task lets you detect landmarks of human bodies in an image or video. You can use this task to identify key body locations, analyze posture, and categorize movements. 
 
